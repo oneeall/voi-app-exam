@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.voila.mobile_app">
+    package="com.voila.id">
    <application
-        android:label="mobile_app"
+        android:label="Voila.id"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

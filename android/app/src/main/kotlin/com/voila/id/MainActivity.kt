@@ -1,4 +1,4 @@
-package com.voila.mobile_app
+package com.voila.id
 
 import io.flutter.embedding.android.FlutterActivity
 
