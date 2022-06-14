@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/src/features/home/data/remote/response/quotes_response.dart';
+import 'package:mobile_app/src/features/home/data/remote/quotes_response.dart';
 
 class HomeListTile extends StatelessWidget {
   const HomeListTile({
