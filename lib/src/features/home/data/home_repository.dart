@@ -1,4 +1,4 @@
-import 'package:mobile_app/src/features/home/data/remote/quotes_response.dart';
+import 'package:mobile_app/src/features/home/data/quotes_response.dart';
 import 'package:mobile_app/src/network/dio_provider.dart';
 
 class HomeRepository {

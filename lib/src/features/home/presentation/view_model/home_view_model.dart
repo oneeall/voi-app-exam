@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/src/features/home/data/remote/quotes_response.dart';
+import 'package:mobile_app/src/features/home/data/quotes_response.dart';
 import 'package:mobile_app/src/features/home/domain/home_model.dart';
 import 'package:mobile_app/src/utils/result_response/data/app_error.dart';
 import 'package:mobile_app/src/utils/result_response/result_response_mixin.dart';
