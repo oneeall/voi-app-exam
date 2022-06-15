@@ -1,8 +1,10 @@
-import 'package:mobile_app/src/features/home/data/remote/response/quotes_response.dart';
+import 'package:mobile_app/src/features/home/data/quotes_response.dart';
 import 'package:mobile_app/src/network/dio_provider.dart';
 
+import '../../../utils/logger/logger.dart';
+
 class HomeRepository {
-  Future<QuotesResponse> obtainQuotes({int page = 1}) async {
+  Future<QuotesResponse?> obtainQuotes({int page = 1}) async {
     try {
       final restClient = RestClient();
       var response = await restClient.get(
@@ -14,7 +16,9 @@ class HomeRepository {
 
       return QuotesResponse.fromJson(response.data);
     } catch (e) {
-      rethrow;
+      logger.w('error on get /quotes');
     }
+
+    return null;
   }
 }

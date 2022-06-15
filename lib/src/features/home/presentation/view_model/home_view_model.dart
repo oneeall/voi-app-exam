@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/src/features/home/data/remote/response/quotes_response.dart';
+import 'package:mobile_app/src/features/home/data/quotes_response.dart';
 import 'package:mobile_app/src/features/home/domain/home_model.dart';
 import 'package:mobile_app/src/utils/result_response/data/app_error.dart';
 import 'package:mobile_app/src/utils/result_response/result_response_mixin.dart';
@@ -40,8 +40,8 @@ class HomeViewModel with ChangeNotifier, ResultResponseMixin<HomeModel?> {
     var nextPage = currentPage + 1;
 
     var quotesResponse = await homeRepository.obtainQuotes(page: nextPage);
-    var results = quotesResponse.results;
-    var page = quotesResponse.page;
+    var results = quotesResponse?.results;
+    var page = quotesResponse?.page;
 
     /// add all list dummy
     var collectQuotes = _homeModel?.quotes;
@@ -61,8 +61,8 @@ class HomeViewModel with ChangeNotifier, ResultResponseMixin<HomeModel?> {
     try {
       /// obtain the data from repo
       var quotesResponse = await homeRepository.obtainQuotes();
-      var results = quotesResponse.results;
-      var page = quotesResponse.page;
+      var results = quotesResponse?.results;
+      var page = quotesResponse?.page;
 
       /// Compose & set data domain
       _homeModel = (results != null && page != null)
