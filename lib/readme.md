@@ -40,3 +40,10 @@
     - ui
     - utils
   - main.dart
+
+
+
+features in voila apps
+  - shop by category
+    - 
+    - 
