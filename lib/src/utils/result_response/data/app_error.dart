@@ -1,22 +1,23 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-enum AppErrorType {
-  network,
-  badRequest,
-  unauthorized,
-  cancel,
-  timeout,
-  server,
-  unknown,
-}
+// enum AppErrorType {
+//   network,
+//   badRequest,
+//   unauthorized,
+//   cancel,
+//   timeout,
+//   server,
+//   unknown,
+// }
 
 class AppError {
   late String message;
-  late AppErrorType type;
+  late DioErrorType type;
 
   AppError(Object? error) {
     debugPrint('AppError : $error');
-    type = AppErrorType.unknown;
+    type = DioErrorType.other;
     message = 'AppError : $error';
   }
 }

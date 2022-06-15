@@ -40,8 +40,8 @@ class HomeViewModel with ChangeNotifier, ResultResponseMixin<HomeModel?> {
     var nextPage = currentPage + 1;
 
     var quotesResponse = await homeRepository.obtainQuotes(page: nextPage);
-    var results = quotesResponse.results;
-    var page = quotesResponse.page;
+    var results = quotesResponse?.results;
+    var page = quotesResponse?.page;
 
     /// add all list dummy
     var collectQuotes = _homeModel?.quotes;
@@ -61,8 +61,8 @@ class HomeViewModel with ChangeNotifier, ResultResponseMixin<HomeModel?> {
     try {
       /// obtain the data from repo
       var quotesResponse = await homeRepository.obtainQuotes();
-      var results = quotesResponse.results;
-      var page = quotesResponse.page;
+      var results = quotesResponse?.results;
+      var page = quotesResponse?.page;
 
       /// Compose & set data domain
       _homeModel = (results != null && page != null)
