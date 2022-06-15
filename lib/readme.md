@@ -1,0 +1,42 @@
+## app structure example
+
+- lib
+  - generated
+  - l10n
+  - src
+    - constants
+    - features
+      - user_confirmation 
+        - data
+          - user_model
+        - domain
+        - presentation
+          - pages
+            - otp_page 
+      - user_authentication
+        - data
+          - export user_model
+        - domain
+        - presentation
+          - pages
+            - login_page
+            - register_page
+            - forgot_password_page
+            - changes_password_page
+          - widgets
+            - password_text_field
+            - email_text_field
+            - account_submission_button
+          - view_model
+      - account
+        - data
+        - domain
+        - presentation
+          - pages
+            - account_page
+              - change_password_button
+    - network
+    - routing
+    - ui
+    - utils
+  - main.dart
