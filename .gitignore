@@ -24,6 +24,7 @@ migrate_working_dir/
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
+/ios/Podfile.lock
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
@@ -31,6 +32,10 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/ios/build/
+pubspec.lock
+/coverage/*
+/lib/generated/
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -45,3 +50,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# GTM generate from build Phases
+/ios/container/GTM-info.json
