@@ -18,6 +18,15 @@ class ResultResponse<T> {
   final List<String>? errors;
   final int? serverTime;
 
+  bool get isError => data == null;
+
+  bool get isNotExpected =>
+      code == null ||
+      message == null ||
+      serverTime == null ||
+      (data == null && errors == null) ||
+      (data != null && errors != null);
+
   factory ResultResponse.fromJson(Map<String, dynamic> jsonRes) {
     final errors = jsonRes['errors'] is List ? <String>[] : null;
     T? data;
