@@ -34,17 +34,17 @@ class ResultResponse<T> {
         _loggerOnError(errors);
       }
 
-      data = JsonConvert.fromJson(jsonRes['data']);
+      data = JsonConvert.fromJson<T>(jsonRes['data']);
     } catch (_) {
       logger.w("ERROR: Failed to convert ResultResponse to JSON");
     }
 
     return ResultResponse(
-        code: jsonRes['code'],
-        message: jsonRes['message'],
-        errors: errors,
-        serverTime: jsonRes['server_time'],
-        data: data);
+        code: asT<String>(jsonRes['code']),
+        message: asT<String>(jsonRes['message']),
+        errors: asT<List<String>>(errors),
+        serverTime: asT<int>(jsonRes['server_time']),
+        data: asT<T>(data));
   }
 
   static void _loggerOnError(List<String> errors) {
