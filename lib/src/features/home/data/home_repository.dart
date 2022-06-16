@@ -1,12 +1,12 @@
 import 'package:mobile_app/src/features/home/data/quotes_query_params.dart';
 import 'package:mobile_app/src/features/home/data/quotes_response.dart';
+import 'package:mobile_app/src/features/products/data/products_response.dart';
+import 'package:mobile_app/src/features/user/data/user_response.dart';
 import 'package:mobile_app/src/network/dio_provider.dart';
 import 'package:mobile_app/src/network/endpoints.dart';
 import 'package:mobile_app/src/utils/result_response/result_response.dart';
 
 import '../../../utils/logger/logger.dart';
-import '../data/product.dart';
-import '../data/user.dart';
 
 class HomeRepository with ApiProvider {
   Future<ResultResponse<QuotesResponse>?> obtainQuotes({
@@ -25,7 +25,7 @@ class HomeRepository with ApiProvider {
     return null;
   }
 
-  void getProduct() {
+  void getPrduct() {
     var product = Product();
   }
 

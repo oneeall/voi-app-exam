@@ -72,7 +72,7 @@
   - l10n
   - src
     - constants
-    - models
+    - models [global]
       - user_model_data_source
       - product_model_data_source
     - pages
