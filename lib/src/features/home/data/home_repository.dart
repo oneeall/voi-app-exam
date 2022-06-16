@@ -2,11 +2,12 @@ import 'package:mobile_app/src/features/home/data/quotes_query_params.dart';
 import 'package:mobile_app/src/features/home/data/quotes_response.dart';
 import 'package:mobile_app/src/network/dio_provider.dart';
 import 'package:mobile_app/src/network/endpoints.dart';
+import 'package:mobile_app/src/utils/result_response/result_response.dart';
 
 import '../../../utils/logger/logger.dart';
 
 class HomeRepository with ApiProvider {
-  Future<QuotesResponse?> obtainQuotes({
+  Future<ResultResponse<QuotesResponse>?> obtainQuotes({
     required QuotesQueryParams queryParams,
   }) async {
     try {
@@ -14,8 +15,7 @@ class HomeRepository with ApiProvider {
         Endpoints.quotesPath,
         queryParameters: queryParams.toMap(),
       );
-
-      return QuotesResponse.fromJson(response.data);
+      return ResultResponse<QuotesResponse>.fromJson(response.data);
     } catch (e) {
       logger.w('error on get ${Endpoints.quotesPath}');
     }
