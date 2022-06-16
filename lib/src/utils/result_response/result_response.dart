@@ -56,7 +56,7 @@ class ResultResponse<T> {
     if (value is T) {
       return value;
     }
-    logger.w('WARNING: wrong value assigned to $key');
+    logger.w('WARNING: wrong value assigned to $key on ResultResponse');
 
     return null;
   }
