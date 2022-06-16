@@ -185,7 +185,7 @@ class TextThemeVoila {
         letterSpacing: 0.4);
   }
 
-  TextStyle get overline {
+  TextStyle get footer {
     return GoogleFonts.inter(
         textStyle: Theme
             .of(localContext)
@@ -194,8 +194,8 @@ class TextThemeVoila {
             .copyWith(leadingDistribution: TextLeadingDistribution.even),
         fontSize: 10,
         color: kNeutral3,
-        fontWeight: FontWeight.w500,
-        height: 1.6,
+        fontWeight: FontWeight.normal,
+        height: 0.94,
         letterSpacing: 0.5);
   }
 }
