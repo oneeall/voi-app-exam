@@ -28,7 +28,8 @@ class ResultResponse<T> {
           if (asT<String>(item) != null) {
             errors.add(item);
           } else {
-            logger.w("WARNING: Failed to convert error to String");
+            logger
+                .w("WARNING: Failed to convert error on errors list to String");
           }
         }
         _loggerOnError(errors);
@@ -40,14 +41,23 @@ class ResultResponse<T> {
     }
 
     return ResultResponse(
-        code: asT<String>(jsonRes['code']),
-        message: asT<String>(jsonRes['message']),
-        errors: asT<List<String>>(errors),
-        serverTime: asT<int>(jsonRes['server_time']),
-        data: asT<T>(data));
+        code: _asTLogger<String>(jsonRes['code'], 'code'),
+        message: _asTLogger<String>(jsonRes['message'], 'message'),
+        errors: _asTLogger<List<String>>(errors, 'errors'),
+        serverTime: _asTLogger<int>(jsonRes['server_time'], 'server_time'),
+        data: _asTLogger<T>(data, 'data'));
   }
 
   static void _loggerOnError(List<String> errors) {
     logger.w(errors);
+  }
+
+  static T? _asTLogger<T>(dynamic value, String key) {
+    if (value is T) {
+      return value;
+    }
+    logger.w('WARNING: wrong value assigned to $key');
+
+    return null;
   }
 }
