@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/src/features/home/data/quotes_query_params.dart';
 import 'package:mobile_app/src/features/home/data/quotes_response.dart';
 import 'package:mobile_app/src/features/home/domain/home_model.dart';
 import 'package:mobile_app/src/utils/result_response/data/app_error.dart';
@@ -39,7 +40,8 @@ class HomeViewModel with ChangeNotifier, ResultResponseMixin<HomeModel?> {
     var currentPage = _homeModel?.page ?? 1;
     var nextPage = currentPage + 1;
 
-    var quotesResponse = await homeRepository.obtainQuotes(page: nextPage);
+    var quotesResponse = await homeRepository.obtainQuotes(
+        queryParams: QuotesQueryParams(page: nextPage));
     var results = quotesResponse?.results;
     var page = quotesResponse?.page;
 
@@ -60,7 +62,9 @@ class HomeViewModel with ChangeNotifier, ResultResponseMixin<HomeModel?> {
     showLoadingState();
     try {
       /// obtain the data from repo
-      var quotesResponse = await homeRepository.obtainQuotes();
+      var quotesResponse = await homeRepository.obtainQuotes(
+        queryParams: QuotesQueryParams(page: 1),
+      );
       var results = quotesResponse?.results;
       var page = quotesResponse?.page;
 

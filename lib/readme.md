@@ -1,49 +1,137 @@
 ## app structure example
 
+## by features
+
 - lib
   - generated
   - l10n
   - src
     - constants
     - features
-      - user_confirmation 
+      - home
         - data
-          - user_model
-        - domain
-        - presentation
-          - pages
-            - otp_page 
-      - user_authentication
-        - data
-          - export user_model
-        - domain
-        - presentation
-          - pages
-            - login_page
-            - register_page
-            - forgot_password_page
-            - changes_password_page
-          - widgets
-            - password_text_field
-            - email_text_field
-            - account_submission_button
+          - user_export_data
+          - product_export_data
+        - domain 
+        - presenter
           - view_model
-      - account
+            - home_view_model 
+          - widgets
+          - home_page
+            - product_list_section_widget
+            - user_section_widget
+      - user 
         - data
+          - user_model_data_source
         - domain
+          - user_account_model
+          - user_login_model
+          - user_confirmation_otp_model
         - presentation
-          - pages
-            - account_page
-              - change_password_button
+          - user_account_page
+          - user_login_page
+          - user_confirmation_otp_page
+          - widgets
+            - user_text_field_widget
+            - user_submit_button_widget
+          - view_model
+            - user_account_view_model
+            - user_login_view_model
+            - user_confirmation_otp_view_model
+      - products
+        - data
+          - products_model_data_source
+        - domain
+          - catalogue_view_model
+        - presentation
+          - catalogue_page
+          - wishlist_page
+          - widgets
+            - product_list_widget
+            - view_more_button_widget
     - network
+      - interceptors
+      - dio_provider
+      - endpoints.dart
     - routing
     - ui
+      - components
+        - catalogue_section.dart
+          - data
+            - catalogue_section_model.dart
     - utils
   - main.dart
 
+## by pages
 
+- lib
+  - generated
+  - l10n
+  - src
+    - constants
+    - models
+      - user_model_data_source
+      - product_model_data_source
+    - pages
+      - home
+        - data
+        - domain
+        - presenter
+          - view_model
+            - home_view_model
+          - widgets
+          - home_page
+            - product_list_section_widget
+            - user_section_widget
+      - user
+        - data
+        - domain
+          - user_account_model
+          - user_login_model
+          - user_confirmation_otp_model
+        - presentation
+          - user_account_page
+          - user_login_page
+          - user_confirmation_otp_page
+          - widgets
+            - user_text_field_widget
+            - user_submit_button_widget
+          - view_model
+            - user_account_view_model
+            - user_login_view_model
+            - user_confirmation_otp_view_model
+      - products
+        - data
+        - domain
+          - catalogue_view_model
+        - presentation
+          - catalogue_page
+          - wishlist_page
+          - widgets
+            - product_list_widget
+            - view_more_button_widget
+    - network
+      - interceptors
+      - dio_provider
+      - endpoints.dart
+    - routing
+    - ui
+      - components
+        - catalogue_section.dart
+          - data
+            - catalogue_section_model.dart
+    - utils
+  - main.dart
 
 features in voila apps
-  - shop by category
-    - 
-    - 
+  - user_confirmation (otp)
+  - user_authentication 
+  - user_registration
+  - user_account
+  - catalogue
+  - products
+  - cart
+  - checkout
+  - orders
+  - articles
+  - reviews

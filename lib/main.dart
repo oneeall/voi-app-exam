@@ -3,11 +3,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mobile_app/src/features/home/data/home_repository.dart';
 import 'package:mobile_app/src/features/home/presentation/home_page.dart';
 import 'package:mobile_app/src/features/home/presentation/view_model/home_view_model.dart';
+import 'package:mobile_app/src/network/dio_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'generated/l10n.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // init
+  ApiProvider.init();
+
   runApp(const MyApp());
 }
 
