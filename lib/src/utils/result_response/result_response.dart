@@ -10,30 +10,34 @@ T? asT<T>(dynamic value) {
 
 class ResultResponse<T> {
   ResultResponse(
-      {required this.code,
-      required this.message,
-      required this.data,
-      required this.errors,
-      required this.serverTime});
+      {this.code, this.message, this.data, this.errors, this.serverTime});
 
-  final String code;
-  final String message;
+  final String? code;
+  final String? message;
   final T? data;
   final List<String>? errors;
-  final int serverTime;
+  final int? serverTime;
 
   factory ResultResponse.fromJson(Map<String, dynamic> jsonRes) {
     final errors = jsonRes['errors'] is List ? <String>[] : null;
-    if (errors != null) {
-      for (final item in jsonRes['errors']!) {
-        if (asT<String>(item) != null) {
-          errors.add(item);
-        }
-      }
-      _loggerOnError(errors);
-    }
+    T? data;
 
-    final data = JsonConvert.fromJson(jsonRes['data']);
+    try {
+      if (errors != null) {
+        for (final item in jsonRes['errors']!) {
+          if (asT<String>(item) != null) {
+            errors.add(item);
+          } else {
+            logger.w("WARNING: Failed to convert error to String");
+          }
+        }
+        _loggerOnError(errors);
+      }
+
+      data = JsonConvert.fromJson(jsonRes['data']);
+    } catch (_) {
+      logger.w("ERROR: Failed to convert ResultResponse to JSON");
+    }
 
     return ResultResponse(
         code: jsonRes['code'],
