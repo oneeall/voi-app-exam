@@ -1,4 +1,4 @@
-import 'quotes_extensions.dart';
+import 'quote_extensions.dart';
 
 /// this domain model for detail quote ui
 class QuoteDetailModel {

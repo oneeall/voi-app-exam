@@ -10,7 +10,9 @@ class HomeFloatingActionButton extends StatelessWidget with DialogMixin {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       tooltip: 'show dialog',
-      child: const Icon(Icons.notification_important),
+      child: const Icon(
+        Icons.notification_important,
+      ),
       onPressed: () {
         showDialogCustom(
           title: 'title',

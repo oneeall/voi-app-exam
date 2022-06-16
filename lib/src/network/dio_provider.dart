@@ -1,24 +1,25 @@
 import 'package:dio/dio.dart';
-import 'package:dio/native_imp.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
+import 'package:flutter/foundation.dart';
+import 'package:mobile_app/src/network/endpoints.dart';
 import 'package:mobile_app/src/network/interceptors/log_interceptor.dart';
 
 import 'interceptors/connection_interceptor.dart';
 import 'interceptors/header_interceptor.dart';
 import 'interceptors/token_expired_interceptor.dart';
 
-class RestClient extends DioForNative {
-  static final _dio = Dio();
-
-  static Dio get dio {
-    return _dio;
-  }
-
-  static final _baseOptionsDev = BaseOptions(
-    baseUrl: 'http://api.quotable.io',
-  );
-
-  RestClient() : super(_baseOptionsDev) {
+// mixin RestClient {
+//   static final _dio = Dio(_baseOptions);
+//
+//   static final _baseOptions = BaseOptions(
+//     baseUrl: kDebugMode ? Endpoints.baseUrl : Endpoints.baseUrlDev,
+//   );
+//
+//   Dio get restClient => _dio..initInterceptors(_dio);
+// }
+//
+extension on Dio {
+  void initInterceptors(Dio dio) {
     interceptors
       ..add(headerInterceptor())
       ..add(ConnectionDioInterceptor())
@@ -26,9 +27,20 @@ class RestClient extends DioForNative {
       ..add(tokenExpiredInterceptor())
       ..add(PrettyDioLogger());
   }
+}
 
-  RestClient auth() {
-    options.extra['auth_required'] = true;
-    return this;
+class ApiProvider {
+  static final _dio = Dio(_baseOptions);
+
+  static final _baseOptions = BaseOptions(
+    baseUrl: kDebugMode ? Endpoints.baseUrl : Endpoints.baseUrlDev,
+  );
+
+  static void init() {
+    _dio.initInterceptors(_dio);
+  }
+
+  Dio get dioClient {
+    return _dio;
   }
 }
