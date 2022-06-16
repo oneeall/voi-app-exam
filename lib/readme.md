@@ -11,7 +11,10 @@
       - home
         - data
           - user_export_data
-          - product_export_data
+          - product_export_data_model
+          - quotes_query_params
+          - quotes_response
+          - repository
         - domain 
         - presenter
           - view_model
@@ -124,13 +127,20 @@
   - main.dart
 
 features in voila apps
-  - user_confirmation (otp)
-  - user_authentication 
-  - user_registration
-  - user_account
-  - catalogue
+  - user
+    - user_confirmation (otp)
+    - user_authentication 
+    - user_registration
+    - user_account
   - products
-  - cart
+    - filters 
+    - product_list
+      - catalogue
+      - brand
+  - product
+    - detail product
+  - carts
+    - list of cart
   - checkout
   - orders
   - articles

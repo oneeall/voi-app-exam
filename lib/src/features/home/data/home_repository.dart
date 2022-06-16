@@ -5,6 +5,8 @@ import 'package:mobile_app/src/network/endpoints.dart';
 import 'package:mobile_app/src/utils/result_response/result_response.dart';
 
 import '../../../utils/logger/logger.dart';
+import '../data/product.dart';
+import '../data/user.dart';
 
 class HomeRepository with ApiProvider {
   Future<ResultResponse<QuotesResponse>?> obtainQuotes({
@@ -21,5 +23,13 @@ class HomeRepository with ApiProvider {
     }
 
     return null;
+  }
+
+  void getProduct() {
+    var product = Product();
+  }
+
+  void getUser() {
+    var user = UserResponse('');
   }
 }

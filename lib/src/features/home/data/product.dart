@@ -1,0 +1,1 @@
+export '../../products/data/products_response.dart' show Product;
