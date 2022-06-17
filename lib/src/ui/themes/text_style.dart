@@ -87,35 +87,7 @@ class TextThemeVoila {
         letterSpacing: 0);
   }
 
-  TextStyle get title {
-    return GoogleFonts.inter(
-        textStyle: Theme
-            .of(localContext)
-            .textTheme
-            .subtitle1!
-            .copyWith(leadingDistribution: TextLeadingDistribution.even),
-        fontSize: 16,
-        color: kNeutral3,
-        fontWeight: FontWeight.w900,
-        height: 1.75,
-        letterSpacing: 0.1);
-  }
-
-  TextStyle get subtitle {
-    return GoogleFonts.inter(
-        textStyle: Theme
-            .of(localContext)
-            .textTheme
-            .subtitle2!
-            .copyWith(leadingDistribution: TextLeadingDistribution.even),
-        fontSize: 14,
-        color: kNeutral3,
-        fontWeight: FontWeight.w900,
-        height: 1.71,
-        letterSpacing: 0.1);
-  }
-
-  TextStyle get body1 {
+  TextStyle get body1Regular {
     return GoogleFonts.inter(
         textStyle: Theme
             .of(localContext)
@@ -125,50 +97,78 @@ class TextThemeVoila {
         fontSize: 16,
         color: kNeutral3,
         fontWeight: FontWeight.normal,
-        height: 1.75,
-        letterSpacing: 0.5);
+        height: 1.24,
+        letterSpacing: 0);
   }
 
-  TextStyle get body2 {
+  TextStyle get body1Medium {
     return GoogleFonts.inter(
         textStyle: Theme
             .of(localContext)
             .textTheme
             .bodyText2!
+            .copyWith(leadingDistribution: TextLeadingDistribution.even),
+        fontSize: 16,
+        color: kNeutral3,
+        fontWeight: FontWeight.w500,
+        height: 1.24,
+        letterSpacing: 0);
+  }
+
+  TextStyle get body1Bold {
+    return GoogleFonts.inter(
+        textStyle: Theme
+            .of(localContext)
+            .textTheme
+            .bodyText2!
+            .copyWith(leadingDistribution: TextLeadingDistribution.even),
+        fontSize: 16,
+        color: kNeutral3,
+        fontWeight: FontWeight.bold,
+        height: 1.24,
+        letterSpacing: 0);
+  }
+
+  TextStyle get body2Regular {
+    return GoogleFonts.inter(
+        textStyle: Theme
+            .of(localContext)
+            .textTheme
+            .bodyText1!
             .copyWith(leadingDistribution: TextLeadingDistribution.even),
         fontSize: 14,
         color: kNeutral3,
         fontWeight: FontWeight.normal,
-        height: 1.71,
-        letterSpacing: 0.25);
+        height: 1.24,
+        letterSpacing: 0);
   }
 
-  TextStyle get body3 {
+  TextStyle get body2Medium {
     return GoogleFonts.inter(
         textStyle: Theme
             .of(localContext)
             .textTheme
             .bodyText2!
-            .copyWith(leadingDistribution: TextLeadingDistribution.even),
-        fontSize: 12,
-        color: kNeutral3,
-        fontWeight: FontWeight.normal,
-        height: 1.66,
-        letterSpacing: 0.2);
-  }
-
-  TextStyle get button {
-    return GoogleFonts.inter(
-        textStyle: Theme
-            .of(localContext)
-            .textTheme
-            .button!
             .copyWith(leadingDistribution: TextLeadingDistribution.even),
         fontSize: 14,
         color: kNeutral3,
         fontWeight: FontWeight.w500,
-        height: 1.71,
-        letterSpacing: 1.25);
+        height: 1.24,
+        letterSpacing: 0);
+  }
+
+  TextStyle get body2Bold {
+    return GoogleFonts.inter(
+        textStyle: Theme
+            .of(localContext)
+            .textTheme
+            .bodyText2!
+            .copyWith(leadingDistribution: TextLeadingDistribution.even),
+        fontSize: 14,
+        color: kNeutral3,
+        fontWeight: FontWeight.bold,
+        height: 1.24,
+        letterSpacing: 0);
   }
 
   TextStyle get caption {
@@ -180,9 +180,39 @@ class TextThemeVoila {
             .copyWith(leadingDistribution: TextLeadingDistribution.even),
         fontSize: 12,
         color: kNeutral3,
+        fontWeight: FontWeight.normal,
+        height: 1.10,
+        letterSpacing: 0);
+  }
+
+  TextStyle get captionLineThrough {
+    return GoogleFonts.inter(
+        textStyle: Theme
+            .of(localContext)
+            .textTheme
+            .caption!
+            .copyWith(
+            leadingDistribution: TextLeadingDistribution.even,
+            decoration: TextDecoration.lineThrough),
+        fontSize: 12,
+        color: kNeutral3,
+        fontWeight: FontWeight.w500,
+        height: 1.10,
+        letterSpacing: 0);
+  }
+
+  TextStyle get captionBold {
+    return GoogleFonts.inter(
+        textStyle: Theme
+            .of(localContext)
+            .textTheme
+            .caption!
+            .copyWith(leadingDistribution: TextLeadingDistribution.even),
+        fontSize: 12,
+        color: kNeutral3,
         fontWeight: FontWeight.bold,
-        height: 1.5,
-        letterSpacing: 0.4);
+        height: 1.10,
+        letterSpacing: 0);
   }
 
   TextStyle get footer {
