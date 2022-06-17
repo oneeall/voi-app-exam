@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mobile_app/src/network/dio_provider.dart';
-import 'package:provider/provider.dart';
 
 import 'generated/l10n.dart';
 
